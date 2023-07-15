@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/tvLogo"
@@ -21,39 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:text="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogo" />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:width="320dp"
-        android:ems="10"
-        android:hint="Enter name"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-    <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="120dp"
         android:text="Email"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLogo" />
 
     <EditText
         android:id="@+id/etEmail"
@@ -95,10 +71,10 @@
     <Button
         android:id="@+id/button"
         android:layout_width="350dp"
-        android:layout_height="75dp"
+        android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:backgroundTint="#3A86FF"
-        android:text="Register"
+        android:text="Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -111,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
-        android:text="Existing user?"
+        android:text="No account?"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
@@ -122,13 +98,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
-        android:text="Login here."
-        android:textAllCaps="false"
+        android:text="Register here."
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#3A86FF"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tvDesc"
         app:layout_constraintTop_toBottomOf="@+id/button" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

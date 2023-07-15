@@ -20,62 +20,60 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    private static final String URL_USER_REGISTER = MainActivity.SERVER_URL+"/register.php";
+    private static final String URL_USER_LOGIN = MainActivity.SERVER_URL+"/login.php";
 
     Button btn;
-    TextView tvLogin;
-    EditText etName, etEmail, etPassword;
+    TextView tvRegister;
+    EditText etEmail, etPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_login);
 
         btn = findViewById(R.id.button);
-        tvLogin=findViewById(R.id.tvLogin);
-        etName=findViewById(R.id.etName);
+        tvRegister=findViewById(R.id.tvLogin);
         etEmail=findViewById(R.id.etEmail);
         etPassword=findViewById(R.id.etPassword);
 
-        // login click event
-        tvLogin.setOnClickListener(new View.OnClickListener() {
+        // register click event
+        tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginScreen = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(loginScreen);
+                Intent registerScreen = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(registerScreen);
             }
         });
 
-        // register click event
+        // loginBtn click event
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = etName.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if(name.isEmpty() || email.isEmpty() || password.isEmpty()){
+                if(email.isEmpty() || password.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Required fields cannot be empty", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 JSONObject reqBodyData = new JSONObject();
                 try {
-                    reqBodyData.put("name",name);
                     reqBodyData.put("email",email);
                     reqBodyData.put("password",password);
+
                 } catch (JSONException e) {}
 
                 System.out.println(reqBodyData);
-                postData(URL_USER_REGISTER,reqBodyData);
+                postData(URL_USER_LOGIN,reqBodyData);
             }
         });
 
-
     } // onCreate end
 
-    public void postData(String url,final JSONObject json){
+    public void postData(String url, final JSONObject json){
         // create a RequestQueue for Volley
         RequestQueue reqQ = Volley.newRequestQueue(this);
 
@@ -87,18 +85,15 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     if (response.getInt("status") == 1) {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
+                        finish();
                         Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(mainScreen);
-
                     } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-                        // finish();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "Request failed", Toast.LENGTH_LONG).show();
-                }
-
-            }
+                }}
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -108,4 +103,4 @@ public class RegisterActivity extends AppCompatActivity {
         reqQ.add(json_obj_req);
     }
 
-} // Activity end
+} // LoginActivity End

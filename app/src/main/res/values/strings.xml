@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BudgetBuddy</string>
+    <string name="add_expenses">Add Expenses</string>
+    <string name="date">Date</string>
 </resources>
