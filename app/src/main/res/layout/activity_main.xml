@@ -19,7 +19,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvNoAccount"
-        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
 
     <TextView
         android:id="@+id/tvNoAccount"
@@ -32,20 +32,20 @@
         app:layout_constraintEnd_toStartOf="@+id/tvLogin"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
 
     <TextView
-        android:id="@+id/labelEmail"
+        android:id="@+id/labelCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Email"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="@+id/etEmail"
+        app:layout_constraintStart_toStartOf="@+id/etCategory"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etCategory"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="37dp"
@@ -55,10 +55,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/labelCat" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etDescription"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="37dp"
@@ -68,22 +68,22 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelName" />
+        app:layout_constraintTop_toBottomOf="@+id/labelDate" />
 
     <TextView
-        android:id="@+id/labelName"
+        android:id="@+id/labelDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Password"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="@+id/etPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintStart_toStartOf="@+id/etDescription"
+        app:layout_constraintTop_toBottomOf="@+id/etCategory" />
 
     <Button
-        android:id="@+id/registerBtn"
-        android:layout_width="216dp"
-        android:layout_height="71dp"
+        android:id="@+id/saveBtn"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#3A86FF"
         android:text="Login"
@@ -91,7 +91,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
 
     <TextView
         android:id="@+id/logo"

@@ -34,11 +34,11 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // Binding
-        registerBtn = findViewById(R.id.registerBtn);
+        registerBtn = findViewById(R.id.saveBtn);
         tvLogin = findViewById(R.id.tvLogin);
-        etName = findViewById(R.id.etName);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
+        etName = findViewById(R.id.etDate);
+        etEmail = findViewById(R.id.etCategory);
+        etPassword = findViewById(R.id.etDescription);
 
         // login link click event
         tvLogin.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +88,8 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     if (response.getInt("status") == 1) {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-                        // finish();
-                        // Intent i = new Intent to dashboard view
+                        Intent home = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(home);
 
                     } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
