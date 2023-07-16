@@ -2,7 +2,9 @@ package mdad.networkdata.volleysqldatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,10 +88,18 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getInt("status") == 1) {
+                        // save userId from response
+                        System.out.println(response);
+                        System.out.println(response.getInt("userId"));
+                        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putInt("userId", response.getInt("userId"));
+                        editor.apply();
+                        // success alert and directing to MainActivity
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
+                        finish();
                         Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(mainScreen);
-
                     } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
                         // finish();
