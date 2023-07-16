@@ -12,7 +12,7 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SummaryActivity extends AppCompatActivity {
+public class TransactionActivity extends AppCompatActivity {
 
     String startVal,endVal,catList;
     int userId;
@@ -21,7 +21,7 @@ public class SummaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_summary);
+        setContentView(R.layout.activity_transaction);
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
         userId = sharedPreferences.getInt("userId", 0);
@@ -45,18 +45,16 @@ public class SummaryActivity extends AppCompatActivity {
         } catch (JSONException e){}
         System.out.println(req_body_data);
 
-        // transaction click event
-        tvTransaction.setOnClickListener(new View.OnClickListener() {
+        // summary click event
+        tvSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent transactionUI = new Intent(getApplicationContext(), TransactionActivity.class);
-                transactionUI.putExtra("startVal",startVal);
-                transactionUI.putExtra("endVal",endVal);
-                transactionUI.putExtra("catList",catList);
-                startActivity(transactionUI);
+                Intent summaryUI = new Intent(getApplicationContext(), SummaryActivity.class);
+                summaryUI.putExtra("startVal",startVal);
+                summaryUI.putExtra("endVal",endVal);
+                summaryUI.putExtra("catList",catList);
+                startActivity(summaryUI);
             }
         });
-
-
     } // onCreate end
 } // Activity end

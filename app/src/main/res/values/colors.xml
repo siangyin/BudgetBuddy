@@ -8,4 +8,13 @@
     <color name="purple">#8338EC</color>
     <color name="pink">#FF006E</color>
     <color name="yellow">#FFBE0B</color>
+
+    <style name="MyDatePickerStyle" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/blue</item>                   <!--header background-->
+        <item name="android:windowBackground">@color/white</item>     <!--calendar background-->
+        <item name="android:colorControlActivated">@color/purple</item> <!--selected day-->
+        <item name="android:textColorPrimary">@color/black</item> <!--days of the month-->
+        <item name="android:textColorSecondary">@color/grey</item>
+    </style>
+
 </resources>

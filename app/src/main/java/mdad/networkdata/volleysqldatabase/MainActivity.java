@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -59,15 +60,20 @@ public class MainActivity extends AppCompatActivity {
             currMth = cal.get(Calendar.MONTH);
             currDate = cal.get(Calendar.DAY_OF_MONTH);
 
+            // default date period
+            etStartDate.setText("01-"+(currMth+1)+"-"+currYr);
+            etEndDate.setText(currDate+"-"+(currMth+1)+"-"+currYr);
             // start date event
             etStartDate.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(etStartDate.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(etStartDate.getContext(), R.style.MyDatePickerStyle, new DatePickerDialog.OnDateSetListener() {
+
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                             etStartDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
-                        }},currYr,currMth,currDate);
+                        }
+                    }, currYr, currMth, currDate);
                     datePickerDialog.show();
                 }});
 
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             etEndDate.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(etEndDate.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(etEndDate.getContext(), R.style.MyDatePickerStyle, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                             etEndDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
@@ -97,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                     summaryUI.putExtra("endVal",endVal);
                     summaryUI.putExtra("catList",catList);
                     startActivity(summaryUI);
-
 
                 }
             });

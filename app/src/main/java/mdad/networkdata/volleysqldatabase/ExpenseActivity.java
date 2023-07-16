@@ -80,7 +80,7 @@ public class ExpenseActivity extends AppCompatActivity {
         etDate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(etDate.getContext(), new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(etDate.getContext(), R.style.MyDatePickerStyle, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         etDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
