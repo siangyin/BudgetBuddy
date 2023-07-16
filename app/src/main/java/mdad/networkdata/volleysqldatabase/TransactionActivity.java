@@ -90,7 +90,7 @@ public class TransactionActivity extends AppCompatActivity {
                 String selId  = ((TextView) view.findViewById(R.id.expId)).getText().toString();
                 Intent expenseUI = new Intent(getApplicationContext(), ExpenseActivity.class);
                 expenseUI.putExtra("expId",Integer.parseInt(selId));
-                System.out.println(Integer.parseInt(selId));
+                System.out.println(Integer.parseInt(selId)+position+id);
                 startActivity(expenseUI);
             }
         });
