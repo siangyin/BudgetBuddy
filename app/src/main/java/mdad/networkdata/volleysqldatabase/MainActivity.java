@@ -18,7 +18,8 @@ import org.json.JSONObject;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    public static String SERVER_URL  = "http://budgetbuddy.atspace.cc/api/v1";
+    public static String SERVER_URL  = "http://192.168.68.60:8080/bb/api/v1";
+    // public static String SERVER_URL  = "http://budgetbuddy.atspace.cc/api/v1";
     public static String[] CATEGORY_LIST = {"Food","Transportation","Groceries","Entertainment","Household","Housing","Clothing","Utilities","Health","Education","Insurance","Tax","Donation","Gift","Other","Misc","Misc2","Misc3"};
 
     EditText etStartDate, etEndDate;

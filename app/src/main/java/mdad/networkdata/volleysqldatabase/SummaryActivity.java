@@ -13,6 +13,7 @@ import org.json.JSONObject;
 public class SummaryActivity extends AppCompatActivity {
 
     String startVal,endVal,catList;
+    int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
-        int userId = sharedPreferences.getInt("userId", 0);
+        userId = sharedPreferences.getInt("userId", 0);
 
         Intent intent = getIntent();
         startVal = intent.getStringExtra("startVal");

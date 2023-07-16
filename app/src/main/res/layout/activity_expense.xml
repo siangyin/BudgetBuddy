@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ExpenseActivity">
 
-    <TextView
-        android:id="@+id/tvDesc2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
-        android:text="Amount"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -39,8 +28,8 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:text="Date"
+        android:layout_marginTop="15dp"
+        android:text="Date*"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,17 +38,15 @@
     <EditText
         android:id="@+id/etDate"
         android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="346dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:focusable="false"
         android:hint="Date"
         android:inputType="date"
         android:onClick="showDatePickerDialog"
-        app:layout_constraintBottom_toTopOf="@+id/btnYes"
         app:layout_constraintStart_toEndOf="@+id/tvDate"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <TextView
         android:id="@+id/tvCat"
@@ -67,7 +54,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"
-        android:text="Category"
+        android:text="Category*"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +72,8 @@
     <TextView
         android:id="@+id/tvDesc"
         android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"
         android:text="Description"
         android:textAllCaps="false"
@@ -95,56 +82,62 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCat" />
 
     <EditText
-        android:id="@+id/mtDesc"
+        android:id="@+id/etDesc"
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Enter Description (optional)"
+        android:hint="Description (optional)"
         android:inputType="textMultiLine"
         app:layout_constraintStart_toEndOf="@+id/tvDesc"
         app:layout_constraintTop_toBottomOf="@+id/acCat" />
+
+    <TextView
+        android:id="@+id/tvAmt"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:text="Amount*"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
 
     <EditText
         android:id="@+id/etAmt"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="Enter amount value"
+        android:hint="Amount value"
         android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@+id/tvDesc"
-        app:layout_constraintTop_toBottomOf="@+id/mtDesc" />
+        app:layout_constraintStart_toEndOf="@+id/tvAmt"
+        app:layout_constraintTop_toBottomOf="@+id/etDesc" />
 
     <Button
         android:id="@+id/btnYes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="350dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#3A86FF"
         android:text="Save"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/btnNo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnNo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="90dp"
+        android:layout_width="350dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="#3A86FF"
         android:text="Cancel"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnYes" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
