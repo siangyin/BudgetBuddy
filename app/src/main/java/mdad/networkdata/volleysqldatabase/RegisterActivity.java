@@ -44,8 +44,8 @@ public class RegisterActivity extends AppCompatActivity {
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginScreen = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(loginScreen);
+                Intent loginUI = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginUI);
             }
         });
 
@@ -98,8 +98,8 @@ public class RegisterActivity extends AppCompatActivity {
                         // success alert and directing to MainActivity
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
                         finish();
-                        Intent mainScreen = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainScreen);
+                        Intent mainUI = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainUI);
                     } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
                         // finish();

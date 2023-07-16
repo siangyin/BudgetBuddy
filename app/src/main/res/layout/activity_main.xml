@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:text="Start and End Date"
+        android:text="Start and End Date*"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:text="Categories"
+        android:text="Categories (optional)"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,35 +94,33 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:height="60dp"
-        android:hint="select categories"
+        android:hint="All categories"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCategories" />
-
-    <Button
-        android:id="@+id/btnViewExp"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#3A86FF"
-        android:text="View Expenses"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectedCat" />
 
     <Button
         android:id="@+id/btnAddExp"
         android:layout_width="350dp"
         android:layout_height="75dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="#3A86FF"
         android:text="Add Expense"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnViewExp" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnViewExp"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#3A86FF"
+        android:text="View Expenses"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddExp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

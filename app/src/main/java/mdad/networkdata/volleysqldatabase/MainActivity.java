@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(userId == 0){
             // User is not logged in for the first time, redirect to LoginActivity
-            Intent loginScreen = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(loginScreen);
+            Intent loginUI = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(loginUI);
             finish(); // Optional: finish the MainActivity so that the user cannot go back to it without logging in
         } else {
             // User is already logged in, proceed to continue with MainActivity logic
@@ -86,23 +86,30 @@ public class MainActivity extends AppCompatActivity {
             btnViewExp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // String userId
+
                     String startVal = etStartDate.getText().toString();
                     String endVal = etEndDate.getText().toString();
-                    String catList =selectedCat.getText().toString();
+                    String catList = selectedCat.getText().toString();
 
-                    JSONObject req_body_data = new JSONObject();
-                    try {
-                        // req_body_data.put("userId",userId);
-                        req_body_data.put("start",startVal);
-                        req_body_data.put("end",endVal);
-                        req_body_data.put("categories",catList);
-                    } catch (JSONException e){}
-                    System.out.println(req_body_data);
+                    Intent summaryUI = new Intent(getApplicationContext(),SummaryActivity.class);
+                    summaryUI.putExtra("startVal",startVal);
+                    summaryUI.putExtra("endVal",endVal);
+                    summaryUI.putExtra("catList",catList);
+                    startActivity(summaryUI);
+
+
                 }
             });
 
             // add expense btn event
+            btnAddExp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent expenseUI = new Intent(getApplicationContext(), ExpenseActivity.class);
+                    expenseUI.putExtra("expId",0);
+                    startActivity(expenseUI);
+                }
+            });
 
         } // MainActivity logic execution end
 
