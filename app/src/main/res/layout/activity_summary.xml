@@ -30,4 +30,17 @@
             android:text="Transactions" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/tvPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="01-01-2023 to 31-12-2023"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#3A86FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayoutNav" />
 </androidx.constraintlayout.widget.ConstraintLayout>
