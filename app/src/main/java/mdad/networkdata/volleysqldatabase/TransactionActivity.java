@@ -87,11 +87,17 @@ public class TransactionActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
                 String selId  = ((TextView) view.findViewById(R.id.expId)).getText().toString();
                 Intent expenseUI = new Intent(getApplicationContext(), ExpenseActivity.class);
-                expenseUI.putExtra("expId",Integer.parseInt(selId));
+                // expenseUI.putExtra("expId",Integer.parseInt(selId));
+                expenseUI.putExtra("expId",selId);
                 System.out.println(Integer.parseInt(selId)+position+id);
                 startActivity(expenseUI);
+
+
             }
         });
 

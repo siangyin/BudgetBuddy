@@ -41,7 +41,8 @@ public class ExpenseActivity extends AppCompatActivity {
     private final int option3Edit = 3;
     private final int option4Delete = 4;
 
-    int expId,userId, currYr,currMth, currDate;
+    int userId, currYr,currMth, currDate;
+    String expId;
     TextView tvTitle;
     EditText etDate, etDesc, etAmt;
     AutoCompleteTextView acCat;
@@ -52,11 +53,13 @@ public class ExpenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense);
 
+
+
         SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
-        userId = sharedPreferences.getInt("userId", 0);
+        userId = sharedPreferences.getInt("userId", '0');
 
         Intent intent = getIntent();
-        expId = intent.getIntExtra("expId",0);
+        expId = intent.getStringExtra("expId");
 
         etDate = findViewById(R.id.etDate);
         acCat = findViewById(R.id.acCat);
@@ -64,6 +67,7 @@ public class ExpenseActivity extends AppCompatActivity {
         etAmt = findViewById(R.id.etAmt);
         btnYes = findViewById(R.id.btnYes);
         btnNo = findViewById(R.id.btnNo);
+        tvTitle = findViewById(R.id.tvTitle);
 
         // Creating the instance of ArrayAdapter containing list of categories names
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, MainActivity.CATEGORY_LIST);
@@ -75,6 +79,8 @@ public class ExpenseActivity extends AppCompatActivity {
         currYr = cal.get(Calendar.YEAR);
         currMth = cal.get(Calendar.MONTH);
         currDate = cal.get(Calendar.DAY_OF_MONTH);
+
+
 
         // date click event
         etDate.setOnClickListener(new View.OnClickListener(){
@@ -88,7 +94,7 @@ public class ExpenseActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }}); // date click event end
 
-        if(expId == 0){
+        if(expId == "0"){
             // New expense
             btnYes.setText("Add Expense");
             btnNo.setText("Clear");
@@ -109,6 +115,8 @@ public class ExpenseActivity extends AppCompatActivity {
 
             postData(URL_RETRIEVE_EXPENSE,req_body_data,option1Get);
         } // retrieving expense detail logic end
+
+
 
         // btnYes click event, for add or edit
         btnYes.setOnClickListener(new View.OnClickListener() {
@@ -139,12 +147,12 @@ public class ExpenseActivity extends AppCompatActivity {
                 }
 
                 // executing postData for add or edit
-                if(expId>0){
-                    System.out.println("edit"+option3Edit+req_body_data);
-                    postData(URL_EDIT_EXPENSE,req_body_data,option3Edit);
-                } else {
+                if(expId == "0"){
                     System.out.println("add"+option2Add+req_body_data);
                     postData(URL_ADD_EXPENSE,req_body_data,option2Add);
+                } else {
+                    System.out.println("edit"+option3Edit+req_body_data);
+                    postData(URL_EDIT_EXPENSE,req_body_data,option3Edit);
                 }
             }
         });
@@ -155,7 +163,7 @@ public class ExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // executing clear input or delete record
-                if(expId == 0){
+                if(expId == "0"){
                     // clear input
                     etDate.setText("");
                     acCat.setText("");
@@ -177,6 +185,8 @@ public class ExpenseActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
     } // onCreate end
