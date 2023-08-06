@@ -20,9 +20,10 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     //public static String SERVER_URL  = "http://192.168.68.60:8080/bb/api/v1";
-    public static String SERVER_URL  = "http://172.30.85.80:8080/bb/api/v1";
-    //
-    // public static String SERVER_URL  = "http://budgetbuddy.atspace.cc/api/v1";
+    //public static String SERVER_URL  = "http://172.30.85.80:8080/bb/api/v1";
+    // sch
+    // public static String SERVER_URL  = "http://172.30.87.191:8080/bb/api/v1";
+    public static String SERVER_URL  = "http://budgetbuddy.atspace.cc/api/v1";
     public static String URL_RETRIEVE_EXPENSE = SERVER_URL+"/expense-retrieve.php";
     public static String[] CATEGORY_LIST = {"Food","Transportation","Groceries","Entertainment","Household","Housing","Clothing","Utilities","Health","Education","Insurance","Tax","Donation","Gift","Other","Misc","Misc2","Misc3"};
 
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent expenseUI = new Intent(getApplicationContext(), ExpenseActivity.class);
                     expenseUI.putExtra("expId","0");
+                    System.out.println("add"+" expId"+" 0");
                     startActivity(expenseUI);
                 }
             });
