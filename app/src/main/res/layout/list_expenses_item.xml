@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="40dp"
     android:orientation="horizontal">
 
     <TextView
@@ -12,33 +12,33 @@
 
     <TextView
         android:id="@+id/rowDate"
-        android:layout_marginLeft="25dp"
         android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:textAlignment="textStart"
         android:layout_height="40dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:layout_weight="1"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
         android:id="@+id/rowCat"
         android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:textAlignment="textStart"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
         android:id="@+id/rowAmt"
-        android:layout_marginRight="25dp"
         android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:textAlignment="textStart"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
         android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 </LinearLayout>

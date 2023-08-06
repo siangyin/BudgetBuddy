@@ -156,7 +156,7 @@ public class TransactionActivity extends AppCompatActivity {
                     map.put("expenseId", String.valueOf(expenseId));
                     map.put("date",date);
                     map.put("category",category);
-                    map.put("amount",amount);
+                    map.put("amount","$"+amount);
                     map.put("description",description);
                     map.put("createdOn",createdOn);
                     dbList.add(map);
