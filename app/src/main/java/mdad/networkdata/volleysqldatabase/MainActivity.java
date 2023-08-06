@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,22 +13,19 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    //public static String SERVER_URL  = "http://192.168.68.60:8080/bb/api/v1";
-    //public static String SERVER_URL  = "http://172.30.85.80:8080/bb/api/v1";
-    // sch
-    // public static String SERVER_URL  = "http://172.30.87.191:8080/bb/api/v1";
+    // public static String SERVER_URL  = "http://192.168.68.51:8080/bb/api/v1"; // home
+    // public static String SERVER_URL  = "http://172.30.85.80:8080/bb/api/v1"; // sch
     public static String SERVER_URL  = "http://budgetbuddy.atspace.cc/api/v1";
     public static String URL_RETRIEVE_EXPENSE = SERVER_URL+"/expense-retrieve.php";
     public static String[] CATEGORY_LIST = {"Food","Transportation","Groceries","Entertainment","Household","Housing","Clothing","Utilities","Health","Education","Insurance","Tax","Donation","Gift","Other","Misc","Misc2","Misc3"};
 
     EditText etStartDate, etEndDate;
     MultiAutoCompleteTextView selectedCat;
-    Button btnAddExp, btnViewExp;
+    Button btnAddExp, btnViewExp,btnLogout;
     private int currYr,currMth, currDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             selectedCat = findViewById(R.id.selectedCat);
             btnAddExp = findViewById(R.id.btnAddExp);
             btnViewExp = findViewById(R.id.btnViewExp);
+            btnLogout=findViewById(R.id.btnLogout);
 
             // Creating the instance of ArrayAdapter containing list of categories names
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, CATEGORY_LIST);
@@ -119,6 +116,19 @@ public class MainActivity extends AppCompatActivity {
                     expenseUI.putExtra("expId","0");
                     System.out.println("add"+" expId"+" 0");
                     startActivity(expenseUI);
+                }
+            });
+
+            btnLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("userId", 0);
+                    editor.apply();
+
+                    Intent loginUI = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(loginUI);
                 }
             });
 
