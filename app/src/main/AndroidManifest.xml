@@ -19,9 +19,6 @@
             android:name=".TransactionActivity"
             android:exported="false" />
         <activity
-            android:name=".SummaryActivity"
-            android:exported="false" />
-        <activity
             android:name=".ExpenseActivity"
             android:exported="false" />
         <activity

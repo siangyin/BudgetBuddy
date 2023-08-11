@@ -33,7 +33,7 @@ public class TransactionActivity extends AppCompatActivity {
     private static final String URL_RETRIEVE_EXPENSE = MainActivity.SERVER_URL+"/expense-retrieve.php";
     String startVal,endVal,catList;
     int userId;
-    TextView tvSummary, tvTransaction, tvPeriod;
+    TextView tvTransaction, tvPeriod;
     ListView lv;
     ArrayList<HashMap<String, String>> dbList;
 
@@ -51,7 +51,6 @@ public class TransactionActivity extends AppCompatActivity {
         catList = intent.getStringExtra("catList");
 
         lv=findViewById(R.id.list);
-        tvSummary=findViewById(R.id.tvSummary);
         tvTransaction=findViewById(R.id.tvTransaction);
         tvPeriod=findViewById(R.id.tvPeriod);
         tvPeriod.setText(startVal+" to "+endVal);
@@ -71,33 +70,16 @@ public class TransactionActivity extends AppCompatActivity {
         dbList = new ArrayList<HashMap<String, String>>();
         postData(URL_RETRIEVE_EXPENSE,req_body_data);
 
-        // summary click event
-        tvSummary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent summaryUI = new Intent(getApplicationContext(), SummaryActivity.class);
-                summaryUI.putExtra("startVal",startVal);
-                summaryUI.putExtra("endVal",endVal);
-                summaryUI.putExtra("catList",catList);
-                startActivity(summaryUI);
-            }
-        });
-
         // list item click event
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-
                 String selId  = ((TextView) view.findViewById(R.id.expId)).getText().toString();
                 Intent expenseUI = new Intent(getApplicationContext(), ExpenseActivity.class);
                 // expenseUI.putExtra("expId",Integer.parseInt(selId));
                 expenseUI.putExtra("expId",selId);
                 System.out.println(Integer.parseInt(selId)+position+id);
                 startActivity(expenseUI);
-
-
             }
         });
 

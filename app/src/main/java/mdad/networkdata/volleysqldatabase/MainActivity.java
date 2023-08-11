@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
                     String endVal = etEndDate.getText().toString();
                     String catList = selectedCat.getText().toString();
 
-                    Intent summaryUI = new Intent(getApplicationContext(),SummaryActivity.class);
-                    summaryUI.putExtra("startVal",startVal);
-                    summaryUI.putExtra("endVal",endVal);
-                    summaryUI.putExtra("catList",catList);
-                    startActivity(summaryUI);
+                    Intent transactionUI = new Intent(getApplicationContext(), TransactionActivity.class);
+                    transactionUI.putExtra("startVal",startVal);
+                    transactionUI.putExtra("endVal",endVal);
+                    transactionUI.putExtra("catList",catList);
+                    startActivity(transactionUI);
 
                 }
             });
